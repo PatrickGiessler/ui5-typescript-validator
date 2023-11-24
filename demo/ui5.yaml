@@ -1,13 +1,13 @@
 specVersion: "3.0"
 metadata:
-  name: "ui5.genericvalidator"
-type: library
+  name: ui5.genericvalidator.demo
+type: application
 framework:
-  name: OpenUI5
-  version: "1.115.1"
+  name: SAPUI5
+  version: "1.120.1"
   libraries:
+    - name: sap.m
     - name: sap.ui.core
-    - name: themelib_sap_fiori_3
     - name: themelib_sap_horizon
 builder:
   customTasks:
@@ -17,5 +17,10 @@ server:
   customMiddleware:
     - name: ui5-tooling-transpile-middleware
       afterMiddleware: compression
+    - name: ui5-middleware-servestatic
+      afterMiddleware: compression
+      mountPath: /resources/ui5/genericvalidator
+      configuration:
+        rootPath: "../dist/resources/ui5/genericvalidator"
     - name: ui5-middleware-livereload
       afterMiddleware: compression

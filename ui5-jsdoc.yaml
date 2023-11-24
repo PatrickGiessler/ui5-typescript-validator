@@ -1,6 +1,6 @@
 specVersion: "3.0"
 metadata:
-  name: "com.myorg.myui5lib"
+  name: "ui5.genericvalidator"
 type: library
 builder:
   customTasks:

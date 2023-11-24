@@ -9,8 +9,11 @@
 		"strictPropertyInitialization": false,
 		"rootDir": "./",
 		"paths": {
-			"com/myorg/myui5lib/*": ["./src/*"]
-		}
+			"ui5/genericvalidator/*": ["./src/*"]
+		},
+		"types": [
+            "@sapui5/types"
+        ]
 	},
-	"include": ["./src/**/*", "test/**/*"]
+	"include": ["./src/**/*"]
 }

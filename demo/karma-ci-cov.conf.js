@@ -3,12 +3,7 @@ module.exports = function (config) {
 	config.set({
 		reporters: ["progress", "coverage"],
 		preprocessors: {
-			"src/**/*.ts": ["ui5-transpile"],
-			"test/**/*.ts": ["ui5-transpile"]
-		},
-		proxies: {
-			"/resources/ui5/genericvalidator/": "/base/src/",
-			"/test-resources/ui5/genericvalidator/": "/base/test/"
+			"webapp/**/*.ts": ["ui5-transpile"]
 		},
 		coverageReporter: {
 			dir: "coverage",

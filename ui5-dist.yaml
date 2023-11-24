@@ -1,12 +1,12 @@
 specVersion: "3.0"
 metadata:
-  name: "com.myorg.myui5lib"
+  name: "ui5.genericvalidator"
 type: library
 resources:
   configuration:
     paths:
-      src: dist/resources/com/myorg/myui5lib/
-      test: dist/test-resources/com/myorg/myui5lib/
+      src: dist/resources/ui5/genericvalidator/
+      test: dist/test-resources/ui5/genericvalidator/
 framework:
   name: OpenUI5
   version: "1.115.1"

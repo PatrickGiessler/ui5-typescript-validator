@@ -14,10 +14,10 @@
 		"build": "npm run build:ts-interfaces && ui5 build --clean-dest",
 		"build:ts-interfaces": "npx @ui5/ts-interface-generator",
 		"build:jsdoc": "ui5 build jsdoc --config ui5-jsdoc.yaml --exclude-task buildThemes",
-		"start": "run-p 'build:ts-interfaces -- --watch' start:server",
-		"start:server": "ui5 serve --port 8080 -o test-resources/com/myorg/myui5lib/Example.html",
-		"start:dist": "ui5 serve  --port 8080 -o test-resources/com/myorg/myui5lib/Example.html --config ui5-dist.yaml",
-		"testsuite": "ui5 serve --open test-resources/com/myorg/myui5lib/qunit/testsuite.qunit.html",
+		"start": "run-s build:ts-interfaces start:server",
+		"start:server": "npm start --prefix ./demo",
+		"start:dist": "ui5 serve  --port 8080 -o test-resources/ui5/genericvalidator/Example.html --config ui5-dist.yaml",
+		"testsuite": "ui5 serve --open test-resources/ui5/genericvalidator/qunit/testsuite.qunit.html",
 		"ts-typecheck": "tsc --noEmit",
 		"format": "prettier --write .",
 		"lint": "eslint src test",
@@ -46,5 +46,8 @@
 		"typescript": "^5.1.6",
 		"ui5-middleware-livereload": "^0.8.4",
 		"ui5-tooling-transpile": "^0.7.19"
+	},
+	"dependencies": {
+		"@sapui5/types": "^1.120.1"
 	}
 }

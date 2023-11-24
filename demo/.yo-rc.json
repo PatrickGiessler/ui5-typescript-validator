@@ -1,0 +1,17 @@
+{
+  "generator-ui5-ts-app": {
+    "namespace": "ui5.genericvalidator.demo",
+    "framework": "SAPUI5",
+    "frameworkVersion": "1.120.1",
+    "author": "Patrick Giessler",
+    "initrepo": false,
+    "tstypes": "@sapui5/types",
+    "tstypesVersion": "1.120.1",
+    "appId": "ui5.genericvalidator.demo",
+    "appURI": "ui5/genericvalidator/demo",
+    "cdnDomain": "ui5.sap.com",
+    "defaultTheme": "sap_horizon",
+    "gte11150": true,
+    "setupCompleted": true
+  }
+}

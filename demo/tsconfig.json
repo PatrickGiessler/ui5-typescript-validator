@@ -1,0 +1,22 @@
+{
+	"compilerOptions": {
+		"target": "es2022",
+		"module": "es2022",
+		"moduleResolution": "node",
+		"skipLibCheck": true,
+		"allowJs": true,
+		"strict": true,
+		"strictNullChecks": false,
+		"strictPropertyInitialization": false,
+		"rootDirs": ["./webapp"],
+		"types": ["@sapui5/types", "@types/qunit"],
+		"paths": {
+			"ui5/genericvalidator/demo/*": ["./webapp/*"],
+			"ui5/genericvalidator/*": ["../src/*"],	
+		}
+	},
+	"include": [
+		"./webapp/**/*",
+		"../src/**/*"
+	]
+}
