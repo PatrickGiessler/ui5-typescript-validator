@@ -4,6 +4,8 @@
 
 import ObjectPath from "sap/base/util/ObjectPath";
 import Lib from "sap/ui/core/Lib";
+import ValidatorOptions from "./ValidatorOptions";
+import ValidControl from "./ValidControl";
 
 /**
  * Initialization Code and shared classes of library com.myorg.myui5lib.
@@ -28,6 +30,8 @@ Lib.init({
 // get the library object from global object space because all enums must be attached to it to be usable as UI5 types
 // FIXME: this line is planned to become obsolete and may need to be removed later
 const thisLib: { [key: string]: unknown } = ObjectPath.get("ui5.genericvalidator") as { [key: string]: unknown };
+thisLib.options = ValidatorOptions;
+thisLib.validControl = ValidControl;
 
 // export the library namespace
 export default thisLib;

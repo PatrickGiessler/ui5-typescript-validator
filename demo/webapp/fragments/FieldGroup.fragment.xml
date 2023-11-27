@@ -1,0 +1,70 @@
+<c:FragmentDefinition xmlns="sap.m"
+    xmlns:c="sap.ui.core">
+    <VBox>
+        <Input fieldGroupIds="validate"
+            value="{
+            path: '/SupplierName',
+            type: 'sap.ui.model.type.String',
+            constraints: {
+                minLength: 2
+            }
+        }" />
+        <Input fieldGroupIds="validate"
+            value="{
+            path: '/Street',
+            type: 'sap.ui.model.type.String',
+            constraints: {
+                minLength: 2
+            }
+        }" />
+        <Label text="Test">
+        </Label>
+        <Input fieldGroupIds="validate"
+            value="{
+            path: '/HouseNumber',
+            type: 'sap.ui.model.type.String'
+        }" />
+        <Input fieldGroupIds="validate"
+            value="{
+            path: '/ZIPCode',
+            type: 'sap.ui.model.type.String',
+            constraints: {
+                minLength: 2
+            }
+        }" />
+        <Input fieldGroupIds="validate"
+            value="{
+            path: '/City',
+            type: 'sap.ui.model.type.String',
+            constraints: {
+                minLength: 2
+            }
+        }" />
+        <Select fieldGroupIds="validate"
+            selectedKey="{
+            path: '/Country',
+            type: 'sap.ui.model.type.String',
+            constraints: {
+                minLength: 2
+            }
+        }">
+            <items>
+                <c:Item text="England"
+                    key="England" />
+                <c:Item text="Germany"
+                    key="Germany" />
+                <c:Item text="USA"
+                    key="USA" />
+            </items>
+        </Select>
+        <HBox>
+            <Input value="{
+                path: '/>Deep',
+                type: 'sap.ui.model.type.String',
+                constraints: {
+                    minLength: 2
+                }
+            }" />
+        </HBox>
+    </VBox>
+</c:FragmentDefinition>

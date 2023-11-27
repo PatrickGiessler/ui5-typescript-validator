@@ -1,0 +1,124 @@
+<c:FragmentDefinition xmlns="sap.m"
+    xmlns:c="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout">
+    <f:Form id="invisTestForm"
+        editable="true"
+        
+        
+        visible ="false">
+        <f:title>
+            <c:Title text="Address" />
+        </f:title>
+        <f:layout>
+            <f:ResponsiveGridLayout labelSpanXL="3"
+                labelSpanL="3"
+                labelSpanM="3"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="4"
+                emptySpanL="4"
+                emptySpanM="4"
+                emptySpanS="0"
+                columnsXL="1"
+                columnsL="1"
+                columnsM="1"
+                singleContainerFullSize="false" />
+        </f:layout>
+        <f:formContainers>
+            <f:FormContainer>
+                <f:formElements>
+                    <f:FormElement label="Name">
+                        <f:fields>
+                            <Input value="{
+                        path : '/SupplierName',
+                        type : 'sap.ui.model.type.String',
+                        constraints : {							
+                            minLength : 2								
+                        }								
+                    }" />
+                        </f:fields>
+                    </f:FormElement>
+                    <f:FormElement label="Street">
+                        <f:fields>
+                            <Input value="{
+                        path : '/Street',
+                        type : 'sap.ui.model.type.String',
+                        constraints : {							
+                            minLength : 2								
+                        }								
+                    }" />
+                            <Input value="{
+                        path : '/HouseNumber',
+                        type : 'sap.ui.model.type.String'																	
+                    }">
+                                <layoutData>
+                                    <l:GridData span="XL1 L2 M2 S4" />
+                                </layoutData>
+                            </Input>
+                        </f:fields>
+                    </f:FormElement>
+                    <f:FormElement label="ZIP Code/City">
+                        <f:fields>
+                            <Input value="{
+                        path : '/ZIPCode',
+                        type : 'sap.ui.model.type.String',
+                        constraints : {							
+                            minLength : 2								
+                        }								
+                    }">
+                                <layoutData>
+                                    <l:GridData span="XL1 L2 M2 S4" />
+                                </layoutData>
+                            </Input>
+                            <Input value="{
+                        path : '/City',
+                        type : 'sap.ui.model.type.String',
+                        constraints : {							
+                            minLength : 2								
+                        }								
+                    }" />
+                        </f:fields>
+                    </f:FormElement>
+                    <f:FormElement label="Country">
+                        <f:fields>
+                            <Select selectedKey="{
+                            path : '/Country',
+                            type : 'sap.ui.model.type.String',
+                            constraints : {							
+                                minLength : 2								
+                            }								
+                        }">
+                                <items>
+                                    <c:Item text="England"
+                                        key="England" />
+                                    <c:Item text="Germany"
+                                        key="Germany" />
+                                    <c:Item text="USA"
+                                        key="USA" />
+                                </items>
+                            </Select>
+                        </f:fields>
+                    </f:FormElement>
+                    <f:FormElement label="DEEP">
+                        <f:fields>
+                            <HBox >
+                                <Input value="{
+                            path : '/Deep',
+                            type : 'sap.ui.model.type.String',
+                            constraints : {							
+                                minLength : 2								
+                            }								
+                        }">
+                                    <layoutData>
+                                        <l:GridData span="XL1 L2 M2 S4" />
+                                    </layoutData>
+                                </Input>
+                            </HBox>
+                        </f:fields>
+                    </f:FormElement>
+                </f:formElements>
+            </f:FormContainer>
+        </f:formContainers>
+    </f:Form>
+</c:FragmentDefinition>
