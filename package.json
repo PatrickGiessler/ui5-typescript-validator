@@ -1,6 +1,6 @@
 {
 	"name": "ui5-typescript-control-library",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Showcase of a TypeScript setup for developing UI5 control libraries",
 	"author": "Patrick Giessler",
 	"license": "Apache-2.0",
