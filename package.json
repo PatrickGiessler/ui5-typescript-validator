@@ -1,6 +1,6 @@
 {
 	"name": "ui5-typescript-control-library",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Showcase of a TypeScript setup for developing UI5 control libraries",
 	"author": "Patrick Giessler",
 	"license": "Apache-2.0",
@@ -8,6 +8,9 @@
 		"type": "git",
 		"url": "https://github.com/PatrickGiessler/ui5-typescript-validator"
 	},
+	"files": [
+		"./dist"
+	],
 	"types": "dist/index.d.ts",
 	"scripts": {
 		"clean": "rimraf dist coverage",
@@ -22,7 +25,6 @@
 		"format": "prettier --write .",
 		"lint": "eslint src test",
 		"karma": "karma start",
-		"publish": "run-s version publish-npm",
 		"publish-npm": "npm publish",
 		"version": "run-s version-patch git",
 		"version-patch": "npm version patch",
