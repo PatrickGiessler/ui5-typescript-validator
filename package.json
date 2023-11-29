@@ -1,6 +1,6 @@
 {
 	"name": "ui5-typescript-control-library",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "Showcase of a TypeScript setup for developing UI5 control libraries",
 	"author": "Patrick Giessler",
 	"license": "Apache-2.0",
@@ -26,8 +26,6 @@
 		"lint": "eslint src test",
 		"karma": "karma start",
 		"publish-npm": "npm publish",
-		"version": "run-s version-patch git",
-		"version-patch": "npm version patch",
 		"git": "run-s git-add git-commit git-push",
 		"git-add": "git add *",
 		"git-commit": "git commit -m 'version push'",
