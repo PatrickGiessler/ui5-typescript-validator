@@ -2,11 +2,11 @@
 	"name": "ui5-typescript-control-library",
 	"version": "1.0.0",
 	"description": "Showcase of a TypeScript setup for developing UI5 control libraries",
-	"author": "SAP SE",
+	"author": "Patrick Giessler",
 	"license": "Apache-2.0",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/SAP-samples/ui5-typescript-control-library.git"
+		"url": "https://github.com/PatrickGiessler/ui5-typescript-validator"
 	},
 	"types": "dist/index.d.ts",
 	"scripts": {
@@ -49,5 +49,8 @@
 	},
 	"dependencies": {
 		"@sapui5/types": "^1.120.1"
+	},
+	"publishConfig": {
+		"registry": "http://192.168.2.130:4873"
 	}
 }
