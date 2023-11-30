@@ -7,12 +7,14 @@
 		"strict": true,
 		"strictNullChecks": false,
 		"strictPropertyInitialization": false,
+		"outDir": "./src-gen",
 		"rootDir": "./",
 		"paths": {
-			"ui5/genericvalidator/*": ["./src/*"]
+			"ui5/genericvalidator/*": ["./src/ui5/genericvalidator/*"]
 		},
 		"types": [
-            "@sapui5/types"
+            "@sapui5/types",
+			
         ]
 	},
 	"include": ["./src/**/*"]
