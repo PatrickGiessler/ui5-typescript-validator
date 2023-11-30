@@ -26,7 +26,7 @@ sap.ui.define(["sap/base/util/ObjectPath", "sap/ui/core/Lib", "./ValidatorOption
 
   // get the library object from global object space because all enums must be attached to it to be usable as UI5 types
   // FIXME: this line is planned to become obsolete and may need to be removed later
-  let thisLib = ObjectPath.get("ui5.genericvalidator");
+  const thisLib = ObjectPath.get("ui5.genericvalidator");
   thisLib.options = ValidatorOptions;
   thisLib.validControl = ValidControl;
 
