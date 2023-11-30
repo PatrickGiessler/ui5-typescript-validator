@@ -87,7 +87,7 @@ export default class Validator extends Object {
 	}
 
 	private checkProperties(control: Control): boolean {
-		if (!control.getVisible()) {
+		if (typeof control.getVisible === "function" && !control.getVisible()) {
 			return false;
 		}
 		// Check if getEnabled method exists and if the control is enabled
