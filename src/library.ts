@@ -21,9 +21,7 @@ Lib.init({
 		"sap.ui.core"
 	],
 
-	interfaces: [],
 	controls: ["ui5.genericvalidator.Validator"],
-	elements: [],
 	noLibraryCSS: false // if no CSS is provided, you can disable the library.css load here
 });
 
