@@ -1,6 +1,6 @@
 {
 	"name": "@private/ui5-typescript-control-library",
-	"version": "1.0.11",
+	"version": "1.0.12",
 	"description": "Showcase of a TypeScript setup for developing UI5 control libraries",
 	"author": "Patrick Giessler",
 	"license": "Apache-2.0",
@@ -70,6 +70,7 @@
 		"rimraf": "^5.0.5",
 		"typescript": "^5.3.2",
 		"ui5-middleware-livereload": "^3.0.2",
+		"ui5-tooling-modules": "^3.2.4",
 		"ui5-tooling-transpile": "^3.2.7"
 	},
 	"dependencies": {
