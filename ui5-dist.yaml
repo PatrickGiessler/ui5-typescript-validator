@@ -12,5 +12,3 @@ framework:
   version: "1.115.1"
   libraries:
     - name: sap.ui.core
-    - name: themelib_sap_fiori_3
-    - name: themelib_sap_horizon
