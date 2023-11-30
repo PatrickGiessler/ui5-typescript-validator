@@ -1,5 +1,5 @@
 {
-	"name": "ui5-typescript-control-library",
+	"name": "@private/ui5-typescript-control-library",
 	"version": "1.0.5",
 	"description": "Showcase of a TypeScript setup for developing UI5 control libraries",
 	"author": "Patrick Giessler",
