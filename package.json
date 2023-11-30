@@ -1,6 +1,6 @@
 {
 	"name": "ui5-typescript-control-library",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"description": "Showcase of a TypeScript setup for developing UI5 control libraries",
 	"author": "Patrick Giessler",
 	"license": "Apache-2.0",
@@ -9,8 +9,13 @@
 		"url": "https://github.com/PatrickGiessler/ui5-typescript-validator"
 	},
 	"files": [
-		"./dist"
+		"./dist",
+		"./bin",
+		"./src",
+		"ui5.yaml"
 	],
+	"main": "dist/resources/ui5/genericvalidator/library-preload.js",
+	"browser": "dist/ui5/genericvalidator/library-preload.js",
 	"types": "dist/index.d.ts",
 	"scripts": {
 		"clean": "rimraf dist coverage",
