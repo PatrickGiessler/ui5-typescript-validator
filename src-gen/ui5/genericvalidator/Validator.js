@@ -85,7 +85,7 @@ sap.ui.define(["sap/base/Log", "sap/ui/base/Object", "sap/ui/core/Control", "./V
       return this._hasType(baseControl);
     },
     checkProperties: function _checkProperties(control) {
-      if (!control.getVisible()) {
+      if (typeof control.getVisible === "function" && !control.getVisible()) {
         return false;
       }
       // Check if getEnabled method exists and if the control is enabled
