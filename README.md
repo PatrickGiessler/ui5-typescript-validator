@@ -46,8 +46,9 @@ npm i
 
 Start the control sample page:
 
-```sh
-npm start
+```ts
+import Validator from "@private/ui5-typescript-control-library/dist/resources/ui5/genericvalidator/Validator";
+
 ```
 
 This opens the example control sample page in a browser window which triggers several things at once whenever any code is changed:
