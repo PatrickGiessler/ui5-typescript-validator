@@ -17,6 +17,9 @@ import ODataModel from "sap/ui/model/odata/v2/ODataModel";
 import ODataMetadata from "sap/ui/model/odata/ODataMetadata";
 import Context from "sap/ui/model/Context";
 import String1 from "sap/ui/model/odata/type/String";
+import ODataType from "sap/ui/model/odata/type/ODataType";
+import DateTime from "sap/ui/model/odata/type/DateTime";
+import Decimal from "sap/ui/model/odata/type/Decimal";
 
 /**
  * Constructor for a new <code>ui5.genericvalidator</code> control.
@@ -127,12 +130,40 @@ export default class Validator extends Object {
 		const entityType: object = oModelMetaData._getEntityTypeByPath(biningPath);
 		const metaProperty: object = entityType.property.filter((e: object) => e.name === bindingProperty).pop() as object;
 		if (!metaProperty) return;
-		const oMetadataType: string = metaProperty["type"];
-		const a = new String1(null, {
-			maxLength: 3
+
+		const newType = this.getNewType({
+			type: metaProperty.type as string,
+			maxLength: metaProperty.maxLength as number,
+			precision: metaProperty.precision as number,
+			scale: metaProperty.scale as number
 		});
 
-		return;
+		if (!newType) return;
+
+		oBinding.setType(newType);
+		oBinding.sInternalType = "string"; // Optionally, explain why this is set to "string"
+		return oBinding;
+	}
+	private getNewType(metaProperty: { type: string; maxLength?: number; precision?: number; scale?: number }): ODataType {
+		const oMetadataType: string = metaProperty.type;
+
+		switch (oMetadataType) {
+			case "Edm.String": {
+				const maxLength = metaProperty.maxLength;
+				return maxLength ? new String1(null, { maxLength }) : new String1();
+			}
+			case "Edm.DateTimeOffset": {
+				return new DateTime();
+			}
+			case "Edm.Decimal": {
+				return new Decimal(null, {
+					precision: metaProperty.precision,
+					scale: metaProperty.scale
+				});
+			}
+			default:
+				throw new Error(`Unsupported metadata type: ${oMetadataType}`);
+		}
 	}
 	private _findAggregation(oControl: ManagedObject) {
 		for (let i = 0; i < this.options.possibleAggregations.length; i += 1) {

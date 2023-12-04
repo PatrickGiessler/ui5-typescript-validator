@@ -1,7 +1,7 @@
 /*!
  * ${copyright}
  */
-sap.ui.define(["sap/base/Log", "sap/ui/base/Object", "sap/ui/core/Control", "./ValidatorOptions", "./ValidControl", "sap/ui/core/library", "sap/ui/core/message/MessageType", "sap/ui/model/odata/v2/ODataModel", "sap/ui/model/odata/type/String"], function (Log, Object, Control, __ValidatorOptions, __ValidControl, sap_ui_core_library, MessageType, ODataModel, String1) {
+sap.ui.define(["sap/base/Log", "sap/ui/base/Object", "sap/ui/core/Control", "./ValidatorOptions", "./ValidControl", "sap/ui/core/library", "sap/ui/core/message/MessageType", "sap/ui/model/odata/v2/ODataModel", "sap/ui/model/odata/type/String", "sap/ui/model/odata/type/DateTime", "sap/ui/model/odata/type/Decimal"], function (Log, Object, Control, __ValidatorOptions, __ValidControl, sap_ui_core_library, MessageType, ODataModel, String1, DateTime, Decimal) {
   "use strict";
 
   function _interopRequireDefault(obj) {
@@ -121,11 +121,41 @@ sap.ui.define(["sap/base/Log", "sap/ui/base/Object", "sap/ui/core/Control", "./V
       const entityType = oModelMetaData._getEntityTypeByPath(biningPath);
       const metaProperty = entityType.property.filter(e => e.name === bindingProperty).pop();
       if (!metaProperty) return;
-      const oMetadataType = metaProperty["type"];
-      const a = new String1(null, {
-        maxLength: 3
+      const newType = this.getNewType({
+        type: metaProperty.type,
+        maxLength: metaProperty.maxLength,
+        precision: metaProperty.precision,
+        scale: metaProperty.scale
       });
-      return;
+      if (!newType) return;
+      oBinding.setType(newType);
+      oBinding.sInternalType = "string"; // Optionally, explain why this is set to "string"
+      return oBinding;
+    },
+    getNewType: function _getNewType(metaProperty) {
+      const oMetadataType = metaProperty.type;
+      switch (oMetadataType) {
+        case "Edm.String":
+          {
+            const maxLength = metaProperty.maxLength;
+            return maxLength ? new String1(null, {
+              maxLength
+            }) : new String1();
+          }
+        case "Edm.DateTimeOffset":
+          {
+            return new DateTime();
+          }
+        case "Edm.Decimal":
+          {
+            return new Decimal(null, {
+              precision: metaProperty.precision,
+              scale: metaProperty.scale
+            });
+          }
+        default:
+          throw new Error(`Unsupported metadata type: ${oMetadataType}`);
+      }
     },
     _findAggregation: function _findAggregation(oControl) {
       for (let i = 0; i < this.options.possibleAggregations.length; i += 1) {

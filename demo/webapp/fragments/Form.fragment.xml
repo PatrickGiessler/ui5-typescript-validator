@@ -46,7 +46,7 @@
                             <Input required="true"
                                 value="{
                                     path : 'testData>/HouseNumber',
-                                    type : 'sap.ui.model.type.String'																	
+                                    type : 'sap.ui.model.odata.type.Integer'																	
                                 }">
                                 <layoutData>
                                     <l:GridData span="XL1 L2 M2 S4" />

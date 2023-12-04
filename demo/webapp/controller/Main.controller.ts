@@ -12,8 +12,8 @@ export default class Main extends BaseController {
 		const oModel: ODataModel =
 			this.getOwnerComponent().getModel() as ODataModel;
 		oModel.metadataLoaded().then(() => {
-			const sObjectPath = oModel.createKey("/Suppliers", {
-				ID: 0
+			const sObjectPath = oModel.createKey("/SEPM_I_SalesOrder_E", {
+				ID: ".1~0500000010"
 			});
 			const oTestForm: Form = this.byId("odataTestForm") as Form;
 			oTestForm.bindElement(sObjectPath);

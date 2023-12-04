@@ -6,6 +6,13 @@
         editable="true"
         
         
+        
+        
+        
+        
+        
+        
+        
         visible ="true">
         <f:title>
             <c:Title text="Address Odata" />
@@ -28,51 +35,35 @@
         <f:formContainers>
             <f:FormContainer>
                 <f:formElements>
-                    <f:FormElement label="Name">
+                    <f:FormElement label="SalesOrder">
                         <f:fields>
-                            <Input value="{Name}" />
+                            <Input value="{SalesOrder}" />
                         </f:fields>
                     </f:FormElement>
-                    <f:FormElement label="Street">
+                    <f:FormElement label="SalesOrder_Text">
                         <f:fields>
-                            <Input value="{Address/Street}" />
+                            <TextArea value="{SalesOrder_Text}" />
                         </f:fields>
                     </f:FormElement>
-                    <f:FormElement label="ZIP Code/City">
+                    <f:FormElement label="CreationDateTime">
                         <f:fields>
-                            <Input value="{Address/ZipCode}">
+                            <Input value="{CreationDateTime}">
                                 <layoutData>
                                     <l:GridData span="XL1 L2 M2 S4" />
                                 </layoutData>
                             </Input>
-                            <Input value="{Address/City}" />
                         </f:fields>
                     </f:FormElement>
-                    <f:FormElement label="Country">
+                    <f:FormElement label="GrossAmountInTransacCurrency">
                         <f:fields>
-                            <Select selectedKey="{Address/Country}">
-                                <items>
-                                    <c:Item text="England"
-                                        key="England" />
-                                    <c:Item text="Germany"
-                                        key="Germany" />
-                                    <c:Item text="USA"
-                                        key="USA" />
-                                </items>
-                            </Select>
+                            <Input value="{GrossAmountInTransacCurrency}">
+                                <layoutData>
+                                    <l:GridData span="XL1 L2 M2 S4" />
+                                </layoutData>
+                            </Input>
                         </f:fields>
                     </f:FormElement>
-                    <f:FormElement label="DEEP">
-                        <f:fields>
-                            <HBox >
-                                <Input value="{Concurrency}">
-                                    <layoutData>
-                                        <l:GridData span="XL1 L2 M2 S4" />
-                                    </layoutData>
-                                </Input>
-                            </HBox>
-                        </f:fields>
-                    </f:FormElement>
+
                 </f:formElements>
             </f:FormContainer>
         </f:formContainers>
