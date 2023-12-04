@@ -3,7 +3,7 @@
     <VBox>
         <Input fieldGroupIds="validate"
             value="{
-            path: '/SupplierName',
+            path: 'testData>/SupplierName',
             type: 'sap.ui.model.type.String',
             constraints: {
                 minLength: 2
@@ -11,7 +11,7 @@
         }" />
         <Input fieldGroupIds="validate"
             value="{
-            path: '/Street',
+            path: 'testData>/Street',
             type: 'sap.ui.model.type.String',
             constraints: {
                 minLength: 2
@@ -21,12 +21,12 @@
         </Label>
         <Input fieldGroupIds="validate"
             value="{
-            path: '/HouseNumber',
+            path: 'testData>/HouseNumber',
             type: 'sap.ui.model.type.String'
         }" />
         <Input fieldGroupIds="validate"
             value="{
-            path: '/ZIPCode',
+            path: 'testData>/ZIPCode',
             type: 'sap.ui.model.type.String',
             constraints: {
                 minLength: 2
@@ -42,7 +42,7 @@
         }" />
         <Select fieldGroupIds="validate"
             selectedKey="{
-            path: '/Country',
+            path: 'testData>/Country',
             type: 'sap.ui.model.type.String',
             constraints: {
                 minLength: 2
@@ -59,7 +59,7 @@
         </Select>
         <HBox>
             <Input value="{
-                path: '/>Deep',
+                path: 'testData>/Deep',
                 type: 'sap.ui.model.type.String',
                 constraints: {
                     minLength: 2

@@ -2,10 +2,13 @@
     xmlns:c="sap.ui.core"
     xmlns:f="sap.ui.layout.form"
     xmlns:l="sap.ui.layout">
-    <f:Form id="testForm"
-        editable="true">
+    <f:Form id="odataTestForm"
+        editable="true"
+        
+        
+        visible ="true">
         <f:title>
-            <c:Title text="Address" />
+            <c:Title text="Address Odata" />
         </f:title>
         <f:layout>
             <f:ResponsiveGridLayout labelSpanXL="3"
@@ -27,64 +30,27 @@
                 <f:formElements>
                     <f:FormElement label="Name">
                         <f:fields>
-                            <Input required="true"
-                                value="{
-                                    path : 'testData>/SupplierName',
-                                    type : 'sap.ui.model.type.String',
-                                    constraints : {							
-                                        minLength : 2								
-                                    }								
-                                }" />
+                            <Input value="{Name}" />
                         </f:fields>
                     </f:FormElement>
                     <f:FormElement label="Street">
                         <f:fields>
-                            <Input value="{
-                                    path : 'testData>/Street',
-                                    type : 'sap.ui.model.type.String'							
-                                }" />
-                            <Input required="true"
-                                value="{
-                                    path : 'testData>/HouseNumber',
-                                    type : 'sap.ui.model.type.String'																	
-                                }">
-                                <layoutData>
-                                    <l:GridData span="XL1 L2 M2 S4" />
-                                </layoutData>
-                            </Input>
+                            <Input value="{Address/Street}" />
                         </f:fields>
                     </f:FormElement>
                     <f:FormElement label="ZIP Code/City">
                         <f:fields>
-                            <Input value="{
-                        path : 'testData>/ZIPCode',
-                        type : 'sap.ui.model.type.String',
-                        constraints : {							
-                            minLength : 2								
-                        }								
-                    }">
+                            <Input value="{Address/ZipCode}">
                                 <layoutData>
                                     <l:GridData span="XL1 L2 M2 S4" />
                                 </layoutData>
                             </Input>
-                            <Input value="{
-                        path : 'testData>/City',
-                        type : 'sap.ui.model.type.String',
-                        constraints : {							
-                            minLength : 2								
-                        }								
-                    }" />
+                            <Input value="{Address/City}" />
                         </f:fields>
                     </f:FormElement>
                     <f:FormElement label="Country">
                         <f:fields>
-                            <Select selectedKey="{
-                            path : 'testData>/Country',
-                            type : 'sap.ui.model.type.String',
-                            constraints : {							
-                                minLength : 2								
-                            }								
-                        }">
+                            <Select selectedKey="{Address/Country}">
                                 <items>
                                     <c:Item text="England"
                                         key="England" />
@@ -99,13 +65,7 @@
                     <f:FormElement label="DEEP">
                         <f:fields>
                             <HBox >
-                                <Input value="{
-                            path : 'testData>/Deep',
-                            type : 'sap.ui.model.type.String',
-                            constraints : {							
-                                minLength : 2								
-                            }								
-                        }">
+                                <Input value="{Concurrency}">
                                     <layoutData>
                                         <l:GridData span="XL1 L2 M2 S4" />
                                     </layoutData>

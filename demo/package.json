@@ -17,9 +17,11 @@
 		"karma": "karma start",
 		"karma-ci": "karma start karma-ci.conf.js",
 		"karma-ci-cov": "karma start karma-ci-cov.conf.js",
-		"test": "npm run lint && npm run karma-ci-cov"
+		"test": "npm run lint && npm run karma-ci-cov",
+		"gen-odata": "odata2ts"
 	},
 	"devDependencies": {
+		"@odata2ts/odata2ts": "^0.31.1",
 		"@sapui5/ts-types": "^1.120.1",
 		"@sapui5/types": "^1.120.1",
 		"@typescript-eslint/eslint-plugin": "^6.7.4",
@@ -42,5 +44,8 @@
 			"ui5-middleware-servestatic",
 			"ui5-middleware-livereload"
 		]
+	},
+	"dependencies": {
+		"ui5-middleware-simpleproxy": "^3.2.8"
 	}
 }

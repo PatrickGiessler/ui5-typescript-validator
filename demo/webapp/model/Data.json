@@ -1,0 +1,9 @@
+{
+    "SupplierName": "A",
+    "Street": "Street",
+    "HouseNumber": "420",
+    "ZIPCode": "1234",
+    "City": "BBB",
+    "Country": "DE",
+    "Deep": "too deep"
+}

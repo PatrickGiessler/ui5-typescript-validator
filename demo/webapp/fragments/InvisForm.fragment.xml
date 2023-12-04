@@ -6,6 +6,7 @@
         editable="true"
         
         
+        
         visible ="false">
         <f:title>
             <c:Title text="Address" />
@@ -31,7 +32,7 @@
                     <f:FormElement label="Name">
                         <f:fields>
                             <Input value="{
-                        path : '/SupplierName',
+                        path : 'testData>/SupplierName',
                         type : 'sap.ui.model.type.String',
                         constraints : {							
                             minLength : 2								
@@ -42,14 +43,14 @@
                     <f:FormElement label="Street">
                         <f:fields>
                             <Input value="{
-                        path : '/Street',
+                        path : 'testData>/Street',
                         type : 'sap.ui.model.type.String',
                         constraints : {							
                             minLength : 2								
                         }								
                     }" />
                             <Input value="{
-                        path : '/HouseNumber',
+                        path : 'testData>/HouseNumber',
                         type : 'sap.ui.model.type.String'																	
                     }">
                                 <layoutData>
@@ -61,7 +62,7 @@
                     <f:FormElement label="ZIP Code/City">
                         <f:fields>
                             <Input value="{
-                        path : '/ZIPCode',
+                        path : 'testData>/ZIPCode',
                         type : 'sap.ui.model.type.String',
                         constraints : {							
                             minLength : 2								
@@ -72,7 +73,7 @@
                                 </layoutData>
                             </Input>
                             <Input value="{
-                        path : '/City',
+                        path : 'testData>/City',
                         type : 'sap.ui.model.type.String',
                         constraints : {							
                             minLength : 2								
@@ -83,7 +84,7 @@
                     <f:FormElement label="Country">
                         <f:fields>
                             <Select selectedKey="{
-                            path : '/Country',
+                            path : 'testData>/Country',
                             type : 'sap.ui.model.type.String',
                             constraints : {							
                                 minLength : 2								
@@ -104,7 +105,7 @@
                         <f:fields>
                             <HBox >
                                 <Input value="{
-                            path : '/Deep',
+                            path : 'testData>/Deep',
                             type : 'sap.ui.model.type.String',
                             constraints : {							
                                 minLength : 2								

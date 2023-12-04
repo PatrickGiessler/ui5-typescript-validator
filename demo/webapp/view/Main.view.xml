@@ -16,6 +16,8 @@
 				type="XML" />
 			<core:Fragment fragmentName="ui5.genericvalidator.demo.fragments.FieldGroup"
 				type="XML" />
+			<core:Fragment fragmentName="ui5.genericvalidator.demo.fragments.OdataForm"
+				type="XML" />
 		</content>
 		<footer>
 			<OverflowToolbar>
@@ -29,6 +31,9 @@
 				<Button text="InvisibleForm Validator"
 					type="Emphasized"
 					press="onInvisibleFormValidatorButtonPress" />
+				<Button text="OdataForm Validator"
+					type="Emphasized"
+					press="onOdataFormValidatorButtonPress" />
 			</OverflowToolbar>
 		</footer>
 	</Page>

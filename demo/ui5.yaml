@@ -15,6 +15,15 @@ builder:
       afterTask: replaceVersion
 server:
   customMiddleware:
+    - name: ui5-middleware-simpleproxy
+      afterMiddleware: compression
+      mountPath: /V2
+      configuration:
+        baseUri: "https://services.odata.org/V2"
+        httpHeaders:
+          Any-Header: AnyHeader
+        excludePatterns:
+          - "/local/**"
     - name: ui5-tooling-transpile-middleware
       afterMiddleware: compression
     - name: ui5-middleware-servestatic

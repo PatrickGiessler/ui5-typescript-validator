@@ -8,6 +8,20 @@
 		"description": "{{appDescription}}",
 		"applicationVersion": {
 			"version": "1.0.0"
+		},
+		"dataSources": {
+			"northwind": {
+				"uri": "/V2/(S(gfj4tl340sb5dnxbzeddkcrg))/OData/OData.svc",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "resource/northwind.xml"
+				}
+			},
+			"testData": {
+				"uri": "model/Data.json",
+				"type": "JSON"
+			}
 		}
 	},
 	"sap.ui": {
@@ -45,6 +59,15 @@
 				"settings": {
 					"bundleName": "ui5.genericvalidator.demo.i18n.i18n"
 				}
+			},
+			"": {
+				"dataSource": "northwind",
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {}
+			},
+			"testData": {
+				"type": "sap.ui.model.json.JSONModel",
+				"dataSource": "testData"
 			}
 		},
 		"routing": {
