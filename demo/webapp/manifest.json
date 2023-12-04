@@ -11,7 +11,7 @@
 		},
 		"dataSources": {
 			"northwind": {
-				"uri": "/V2/(S(gfj4tl340sb5dnxbzeddkcrg))/OData/OData.svc",
+				"uri": "/sap/opu/odata/sap/zsocds_srv",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0",
