@@ -1,7 +1,7 @@
 /*!
  * ${copyright}
  */
-sap.ui.define(["sap/base/Log", "sap/ui/base/Object", "sap/ui/core/Control", "./ValidatorOptions", "./ValidControl", "sap/ui/core/library", "sap/ui/core/message/MessageType"], function (Log, Object, Control, __ValidatorOptions, __ValidControl, sap_ui_core_library, MessageType) {
+sap.ui.define(["sap/base/Log", "sap/ui/base/Object", "sap/ui/core/Control", "./ValidatorOptions", "./ValidControl", "sap/ui/core/library", "sap/ui/core/message/MessageType", "sap/ui/model/odata/v2/ODataModel", "sap/ui/model/odata/type/String"], function (Log, Object, Control, __ValidatorOptions, __ValidControl, sap_ui_core_library, MessageType, ODataModel, String1) {
   "use strict";
 
   function _interopRequireDefault(obj) {
@@ -101,11 +101,30 @@ sap.ui.define(["sap/base/Log", "sap/ui/base/Object", "sap/ui/core/Control", "./V
     _hasType: function _hasType(oControl) {
       // check if a data type exists (which may have validation constraints)
       for (let i = 0; i < this.options.validateProperties.length; i += 1) {
-        const oBinding = oControl.getBinding(this.options.validateProperties[i]);
+        const oBinding = this.checkBindingForOdata(oControl, this.options.validateProperties[i]);
         if (oBinding && oBinding.getType()) {
           return this.options.validateProperties[i];
         }
       }
+      return;
+    },
+    checkBindingForOdata: function _checkBindingForOdata(oControl, validateProperty) {
+      const oBinding = oControl.getBinding(validateProperty);
+      if (!oBinding) return;
+      const oModel = oBinding.getModel();
+      if (!(oModel instanceof ODataModel || oModel instanceof sap.ui.model.odata.v4.ODataModel)) return;
+      const oModelMetaData = oModel.getMetaModel().oMetadata;
+      if (!oModelMetaData) return;
+      const bindingContext = oControl.getBindingContext();
+      const biningPath = bindingContext.getPath();
+      const bindingProperty = oBinding.getPath();
+      const entityType = oModelMetaData._getEntityTypeByPath(biningPath);
+      const metaProperty = entityType.property.filter(e => e.name === bindingProperty).pop();
+      if (!metaProperty) return;
+      const oMetadataType = metaProperty["type"];
+      const a = new String1(null, {
+        maxLength: 3
+      });
       return;
     },
     _findAggregation: function _findAggregation(oControl) {

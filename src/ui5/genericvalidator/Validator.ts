@@ -13,6 +13,10 @@ import ValidControl from "./ValidControl";
 import { ValueState } from "sap/ui/core/library";
 import MessageType from "sap/ui/core/message/MessageType";
 import View from "sap/ui/core/mvc/View";
+import ODataModel from "sap/ui/model/odata/v2/ODataModel";
+import ODataMetadata from "sap/ui/model/odata/ODataMetadata";
+import Context from "sap/ui/model/Context";
+import String1 from "sap/ui/model/odata/type/String";
 
 /**
  * Constructor for a new <code>ui5.genericvalidator</code> control.
@@ -103,11 +107,31 @@ export default class Validator extends Object {
 	private _hasType(oControl: ManagedObject): string {
 		// check if a data type exists (which may have validation constraints)
 		for (let i = 0; i < this.options.validateProperties.length; i += 1) {
-			const oBinding: PropertyBinding = oControl.getBinding(this.options.validateProperties[i]) as PropertyBinding;
+			const oBinding: PropertyBinding = this.checkBindingForOdata(oControl, this.options.validateProperties[i]);
 			if (oBinding && oBinding.getType()) {
 				return this.options.validateProperties[i];
 			}
 		}
+		return;
+	}
+	private checkBindingForOdata(oControl: ManagedObject, validateProperty: string): PropertyBinding {
+		const oBinding: PropertyBinding = oControl.getBinding(validateProperty) as PropertyBinding;
+		if (!oBinding) return;
+		const oModel = oBinding.getModel();
+		if (!(oModel instanceof ODataModel || oModel instanceof sap.ui.model.odata.v4.ODataModel)) return;
+		const oModelMetaData: ODataMetadata = oModel.getMetaModel().oMetadata as ODataMetadata;
+		if (!oModelMetaData) return;
+		const bindingContext: Context = oControl.getBindingContext();
+		const biningPath: string = bindingContext.getPath();
+		const bindingProperty: string = oBinding.getPath();
+		const entityType: object = oModelMetaData._getEntityTypeByPath(biningPath);
+		const metaProperty: object = entityType.property.filter((e: object) => e.name === bindingProperty).pop() as object;
+		if (!metaProperty) return;
+		const oMetadataType: string = metaProperty["type"];
+		const a = new String1(null, {
+			maxLength: 3
+		});
+
 		return;
 	}
 	private _findAggregation(oControl: ManagedObject) {
